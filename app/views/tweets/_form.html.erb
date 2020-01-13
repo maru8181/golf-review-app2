@@ -11,15 +11,15 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :"golf" %><br>
+    <%= form.label :'golf' %><br>
     <%= form.select :golf_id,
         options_from_collection_for_select(Golf.all.each{|g|g.name},:id,:name) %><br>
 
-    <%= form.label :"評価" %><br>
+    <%= form.label :'評価' %><br>
     <%= form.select :point_id,
         options_from_collection_for_select(Point.all.map,:id,:valuation) %><br>
 
-    <%= form.label :text %><br>
+    <%= form.label :'text' %><br>
     <%= form.text_field :text, class: 'form-control' %>
 
     <%= form.submit "投稿" %>
