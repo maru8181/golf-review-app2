@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TweetTest < ActiveSupport::TestCase
-
   def setup
     @tweet = tweets(:tweet1)
   end
