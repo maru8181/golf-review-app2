@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_014652) do
+ActiveRecord::Schema.define(version: 2020_01_13_023142) do
+
+  create_table "golves", force: :cascade do |t|
+    t.string "name"
+    t.string "place"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.integer "valuation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "tweets", force: :cascade do |t|
     t.integer "golf_id"
