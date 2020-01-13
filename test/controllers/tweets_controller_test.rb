@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TweetsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @tweet = tweets(:one)
+    @tweet = tweets(:tweet1)
   end
 
   test 'should get index' do
@@ -19,7 +19,6 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Tweet.count') do
       post tweets_url, params: { tweet: { golf_id: @tweet.golf_id, point_id: @tweet.point_id, text: @tweet.text } }
     end
-
     assert_redirected_to tweet_url(Tweet.last)
   end
 
@@ -42,7 +41,6 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Tweet.count', -1) do
       delete tweet_path(@tweet)
     end
-
     assert_redirected_to tweets_url
   end
 end
