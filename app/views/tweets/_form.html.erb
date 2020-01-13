@@ -12,21 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :golf_id %>
-    <%= form.number_field :golf_id %>
+    <%= form.label :"golf" %><br>
+    <%= form.select :golf_id,
+        options_from_collection_for_select(@golves.each{|g|g.name},:id,:name) %><br>
+
+    <%= form.label :"評価" %><br>
+    <%= form.select :point_id,
+        options_from_collection_for_select(@points.map,:id,:valuation) %><br>
+
+    <%= form.label :text %><br>
+    <%= form.text_field :text, class: 'form-control' %>
+
+    <%= form.submit "投稿" %>
   </div>
 
-  <div class="field">
-    <%= form.label :point_id %>
-    <%= form.number_field :point_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
