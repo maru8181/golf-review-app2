@@ -4,14 +4,12 @@
 
 <%= link_to '新規作成', new_tweet_path %><hr>
 
-  <% @tweets.each do |tweet| %>
-
-    <p><%= tweet.golf.name %></p>
-    <p>評価：<%= tweet.point.valuation %></p>
-    <p><%= tweet.text %></p>
-    <%= link_to '詳細', tweet %>
-    <%= link_to '編集', edit_tweet_path(tweet) %>
-    <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
-    <hr>
-
-  <% end %>
+<% @tweets.each do |tweet| %>
+  <p><%= tweet.golf.name %></p>
+  <p>評価：<%= tweet.point.valuation %></p>
+  <p><%= tweet.text %></p>
+  <%= link_to '詳細', tweet %>
+  <%= link_to '編集', edit_tweet_path(tweet) %>
+  <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+  <hr>
+<% end %>

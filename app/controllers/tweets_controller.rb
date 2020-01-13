@@ -17,8 +17,7 @@ class TweetsController < ApplicationController
   end
 
   # GET /tweets/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tweets
   # POST /tweets.json

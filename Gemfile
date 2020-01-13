@@ -54,6 +54,6 @@ group :test do
   gem 'minitest-doc_reporter' # テスト結果の表示を整形
   gem 'minitest-rails'
   gem 'minitest-rails-capybara' # capybaraで結合テストできるようにする
-  gem 'webdrivers'
   gem 'rails-controller-testing'
+  gem 'webdrivers'
 end
