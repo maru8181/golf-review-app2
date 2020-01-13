@@ -1,8 +1,7 @@
 <%= form_with(model: tweet, local: true) do |form| %>
   <% if tweet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
-
+      <h4>投稿できませんでした</h4>
       <ul>
         <% tweet.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -14,11 +13,11 @@
   <div class="field">
     <%= form.label :"golf" %><br>
     <%= form.select :golf_id,
-        options_from_collection_for_select(@golves.each{|g|g.name},:id,:name) %><br>
+        options_from_collection_for_select(Golf.all.each{|g|g.name},:id,:name) %><br>
 
     <%= form.label :"評価" %><br>
     <%= form.select :point_id,
-        options_from_collection_for_select(@points.map,:id,:valuation) %><br>
+        options_from_collection_for_select(Point.all.map,:id,:valuation) %><br>
 
     <%= form.label :text %><br>
     <%= form.text_field :text, class: 'form-control' %>

@@ -2,16 +2,13 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   TargetRubyVersion: 2.6
-  # 除外するディレクトリ（自動生成されたファイル）
   # デフォルト設定にある"vendor/**/*"が無効化されないように記述
   Exclude:
     - app/channels/**/*
     - node_modules/**/*
     - bin/*
-    - test/**/*
     - spec/**/*
     - lib/*
-    - db/migrate/*
     - db/schema.rb
     - lib/tasks/*
     - public/*
@@ -27,13 +24,13 @@ AsciiComments:
 Style/Documentation:
   Enabled: false
 
-# "Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
-Style/StringLiterals:
-  Enabled: false
-
 # "Line is too long"を無効
 Metrics/LineLength:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
   Enabled: false

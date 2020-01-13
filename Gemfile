@@ -50,9 +50,10 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem "minitest"
-  gem "minitest-doc_reporter" # テスト結果の表示を整形
-  gem "minitest-rails"
-  gem "minitest-rails-capybara" # capybaraで結合テストできるようにする
+  gem 'minitest'
+  gem 'minitest-doc_reporter' # テスト結果の表示を整形
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara' # capybaraで結合テストできるようにする
   gem 'webdrivers'
+  gem 'rails-controller-testing'
 end

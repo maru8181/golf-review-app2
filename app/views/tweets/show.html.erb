@@ -2,12 +2,12 @@
 
 <p>
   <strong>ゴルフ場:</strong>
-  <%= @tweet.golf_id %>
+  <%= @tweet.golf.name %>
 </p>
 
 <p>
   <strong>評価:</strong>
-  <%= @tweet.point_id %>
+  <%= @tweet.point.valuation %>
 </p>
 
 <p>
@@ -16,4 +16,4 @@
 </p>
 
 <%= link_to '編集', edit_tweet_path(@tweet) %> |
-<%= link_to 'メインページ', tweets_path %>
+<%= link_to 'メインページに戻る', tweets_path %>

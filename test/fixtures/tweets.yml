@@ -1,11 +1,15 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+tweet1:
+  id: 1
   golf_id: 1
   point_id: 1
-  text: MyText
+  text: 'example'
+  golf: about
+  point: hoge
 
-two:
-  golf_id: 1
-  point_id: 1
-  text: MyText
+tweet2:
+  id: 2
+  golf_id: 2
+  point_id: 2
+  text: 'example'
+  golf: about
+  point: hoge

@@ -14,14 +14,10 @@ class TweetsController < ApplicationController
   # GET /tweets/new
   def new
     @tweet = Tweet.new
-    @golves = Golf.all
-    @points = Point.all
   end
 
   # GET /tweets/1/edit
   def edit
-    @golves = Golf.all
-    @points = Point.all
   end
 
   # POST /tweets
