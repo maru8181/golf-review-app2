@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Golf:</strong>
+  <%= @tweet.golf_id %>
+</p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @tweet.point_id %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @tweet.text %>
+</p>
+
+<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
+<%= link_to 'Back', tweets_path %>
