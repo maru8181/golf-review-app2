@@ -55,4 +55,5 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-rails-capybara' # capybaraで結合テストできるようにする
   gem 'webdrivers'
+  gem 'rails-controller-testing'
 end
