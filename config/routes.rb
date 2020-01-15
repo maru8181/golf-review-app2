@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'tops#index'
+  devise_for :users
   resources :tweets
+  resources :members, only: [:show]
 end
