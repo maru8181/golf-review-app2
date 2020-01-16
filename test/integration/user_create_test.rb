@@ -1,10 +1,9 @@
 require 'test_helper'
 
 class UserCreateTest < ActionDispatch::IntegrationTest
-
-  setup do
-    @user = users(:user1)
-  end
+  # setup do
+  #   @user = users(:user1)
+  # end
 
   # test 'invalid create' do
   #   get new_user_registration_path
@@ -25,5 +24,4 @@ class UserCreateTest < ActionDispatch::IntegrationTest
   #   follow_redirect!
   #   assert_template 'member/show'
   # end
-
 end
