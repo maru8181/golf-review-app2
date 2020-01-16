@@ -17,5 +17,4 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'devise/sessions/new'
   end
-
 end
