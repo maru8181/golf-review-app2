@@ -11,4 +11,8 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include Warden::Test::Helpers
   Warden.test_mode!
+
+  # def logged_in?
+  #     !session[:user_id].nil?
+  # end
 end
