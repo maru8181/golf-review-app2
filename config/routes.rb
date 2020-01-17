@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'tops#index'
-  devise_for :users
   resources :tweets
   resources :members, only: [:show]
+  devise_for :users, :controllers => {
+   :registrations => 'users/registrations',
+   :sessions => 'users/sessions',
+   :passwords => 'users/passwords'
+  }
 end
