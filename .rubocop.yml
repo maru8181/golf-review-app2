@@ -10,6 +10,7 @@ AllCops:
     - spec/**/*
     - lib/*
     - db/schema.rb
+    - db/migrate/*
     - lib/tasks/*
     - public/*
     - tmp/*
@@ -26,6 +27,9 @@ Style/Documentation:
 
 # "Line is too long"を無効
 Metrics/LineLength:
+  Enabled: false
+
+Metrics/BlockLength:
   Enabled: false
 
 Style/FrozenStringLiteralComment:

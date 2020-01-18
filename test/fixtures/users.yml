@@ -3,9 +3,11 @@ user1:
   username: 'example1'
   email: 'hoge@example.co.jp'
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.now - 100 %>
 
 user2:
   id: 2
   username: 'example2'
   email: 'fuga@example.co.jp'
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.now - 100 %>
