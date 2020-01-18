@@ -34,8 +34,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-<<<<<<< HEAD
 
-config/environments/development.rb
-=======
->>>>>>> rollback
