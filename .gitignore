@@ -35,4 +35,4 @@
 yarn-debug.log*
 .yarn-integrity
 
-/config/environments/*.development.rb
+config/environments/development.rb
