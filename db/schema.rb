@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_18_021709) do
+ActiveRecord::Schema.define(version: 2020_01_19_024811) do
 
   create_table "golves", force: :cascade do |t|
     t.string "name"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 2020_01_18_021709) do
 
   create_table "tweets", force: :cascade do |t|
     t.integer "golf_id"
-    t.integer "point_id"
+    t.bigint "point_id"
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
   end
 
   create_table "users", force: :cascade do |t|
