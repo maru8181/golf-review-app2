@@ -22,8 +22,8 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.json
   def create
-    @tweet = Tweet.new(tweet_params)
-
+    @tweet = current_user.tweets.build(tweet_params)
+    
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to @tweet, notice: '投稿しました' }
