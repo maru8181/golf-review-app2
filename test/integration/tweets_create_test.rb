@@ -3,6 +3,8 @@ require 'test_helper'
 class TweetsCreateTest < ActionDispatch::IntegrationTest
   setup do
     @tweet = tweets(:tweet1)
+    @user = users(:user1)
+    login_as(@user)
   end
 
   test 'create invalid' do

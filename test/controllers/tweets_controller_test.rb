@@ -3,6 +3,8 @@ require 'test_helper'
 class TweetsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @tweet = tweets(:tweet1)
+    @user = users(:user1)
+    login_as(@user)
   end
 
   test 'should get index' do
