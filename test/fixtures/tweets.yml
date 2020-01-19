@@ -5,6 +5,7 @@ tweet1:
   text: 'example'
   golf: about
   point: hoge
+  user: fuga
 
 tweet2:
   id: 2
@@ -13,3 +14,4 @@ tweet2:
   text: 'example'
   golf: about
   point: hoge
+  user: fuga
