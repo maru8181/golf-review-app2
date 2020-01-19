@@ -7,4 +7,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     passwords: 'users/passwords'
   }
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 end
