@@ -8,9 +8,11 @@
       <%= render 'shared/stats' %>
       <% if @users.any? %>
         <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%= link_to user.username, member_path(user) %>
-          <% end %>
+          <% will_paginate @users %>
+            <% @users.each do |user| %>
+              <%= link_to user.username, member_path(user) %>
+            <% end %>
+          <%= will_paginate @users %>
         </div>
       <% end %>
     </section>
