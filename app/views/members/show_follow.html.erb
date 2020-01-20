@@ -1,9 +1,27 @@
 <div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1><%= @user.username %></h1>
+      <span><b>tweets:</b> <%= @user.tweets.count %></span>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+      <% if @users.any? %>
+        <div class="user_avatars">
+          <% @users.each do |user| %>
+            <%= link_to user.username, member_path(user) %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  </aside>
   <div class="col-md-8">
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users follow">
-        <%= render @users %>
+        <% @users.each do |user| %>
+          <li><%= user.username %></li>
+        <% end %>
       </ul>
     <% end %>
   </div>
