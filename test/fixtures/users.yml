@@ -14,3 +14,17 @@ user2:
   email: 'fuga@example.co.jp'
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.now - 100 %>
+
+user3:
+  id: 3
+  username: 'example3'
+  email: 'hogehoge@example.co.jp'
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.now - 100 %>
+
+user4:
+  id: 4
+  username: 'example4'
+  email: 'fugafuga@example.co.jp'
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.now - 100 %>
