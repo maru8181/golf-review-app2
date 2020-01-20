@@ -3,16 +3,12 @@ Rails.application.routes.draw do
   resources :tweets
   resources :members, only: [:show] do
     get :following, :followers, on: :member
+    get 'following/tweets', to: 'members#index'
   end
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
     passwords: 'users/passwords'
   }
-  # resources :users do
-  #   member do
-  #     get :following, :followers
-  #   end
-  # end
   resources :relationships, only: %i[create destroy]
 end
