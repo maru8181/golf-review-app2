@@ -5,6 +5,7 @@
     <%= render 'shared/stats' %>
   </section>
 
+  <% will_paginate @tweets %>
   <% @tweets.each do |tweet| %>
     <p><%= tweet.golf.name %></p>
     <p>評価：<%= tweet.point.valuation %></p>
@@ -14,6 +15,7 @@
     <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
     <hr>
   <% end %>
+  <%= will_paginate @tweets %>
 
 <% else %>
   <h2><%= @user.username %>さんのページ</h2>
@@ -23,10 +25,12 @@
   </section>
   <%= render 'follow_form' %>
 
+  <% will_paginate @tweets %>
   <% @tweets.each do |tweet| %>
     <p><%= tweet.golf.name %></p>
     <p>評価：<%= tweet.point.valuation %></p>
     <p><%= tweet.text %></p>
     <hr>
   <% end %>
+  <%= will_paginate @tweets %>
 <% end %>
