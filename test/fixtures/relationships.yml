@@ -1,0 +1,15 @@
+relation1:
+  follower: user1
+  followed: user3
+
+relation2:
+  follower: user1
+  followed: usre4
+
+relation3:
+  follower: user3
+  followed: user1
+
+relation4:
+  follower: user2
+  followed: user1
