@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'tops#index'
-  resources :tweets
+  resources :tweets do
+    get 'follow_tweet', on: :collection
+  end
   resources :members, only: [:show] do
     get :following, :followers, on: :member
-    get 'following/tweets', to: 'members#index'
   end
   devise_for :users, controllers: {
     registrations: 'users/registrations',

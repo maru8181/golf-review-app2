@@ -59,6 +59,16 @@ class TweetsController < ApplicationController
     end
   end
 
+  def follow_tweet
+    @users = current_user.following
+    @tweets = []
+    @users.each do |user|
+      @tweets += Tweet.where(user_id: user.id).reverse_order
+    end
+    @tweets = @tweets.sort_by(&:created_at).reverse
+    @tweets = @tweets.paginate(page: params[:page])
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
