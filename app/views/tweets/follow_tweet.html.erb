@@ -1,0 +1,7 @@
+<% will_paginate @tweets %>
+  <% @tweets.each do |tweet| %>
+    <p><%= tweet.golf.name %></p>
+    <p>評価：<%= tweet.point.valuation %></p>
+    <p><%= tweet.text %></p>
+  <% end %>
+<%= will_paginate @tweets %>
