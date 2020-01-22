@@ -2,16 +2,20 @@ tweet1:
   id: 1
   golf_id: 1
   point_id: 1
-  text: 'example'
+  user_id: 1
+  text: 'example1'
   golf: about
   point: hoge
   user: fuga
+  likes_count: 0
 
 tweet2:
   id: 2
   golf_id: 2
   point_id: 2
-  text: 'example'
+  user_id: 2
+  text: 'example2'
   golf: about
   point: hoge
   user: fuga
+  likes_count: 0
