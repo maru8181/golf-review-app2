@@ -1,13 +1,17 @@
 require 'test_helper'
 
 class LikesControllerTest < ActionDispatch::IntegrationTest
-  test 'should get create' do
-    get likes_create_url
-    assert_response :success
+  setup do
+    @tweet = tweets(:tweet2)
+    @user = users(:user1)
+    login_as(@user)
   end
 
-  test 'should get destroy' do
-    get likes_destroy_url
-    assert_response :success
-  end
+  # test 'valid like' do
+  #   get tweets_path
+  #   post tweet_likes_path(@tweet)
+  # end
+
+  # test 'valid unlike' do
+  # end
 end
