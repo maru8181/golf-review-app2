@@ -27,9 +27,11 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  # ユーザーのステータスフィードを返す
-  # def feed
-  #   following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
-  #   Tweet.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
-  # end
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.username = 'example_user'
+      user.password = SecureRandom.urlsafe_base64
+      user.confirmed_at = Time.now
+    end
+  end
 end
