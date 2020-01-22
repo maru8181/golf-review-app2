@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :tweets do
     get 'follow_tweet', on: :collection
+    resources :likes, only: %i[create destroy]
   end
 
   resources :members, only: [:show] do
