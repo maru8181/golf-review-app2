@@ -18,4 +18,6 @@ require("jquery")
 // const imagePath = (name) => images(name, true)
 
 //= require jquery
+//= require jquery.raty
+//= require ratyrate
 //= require bootstrap-sprockets
