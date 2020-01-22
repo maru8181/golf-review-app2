@@ -22,4 +22,19 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'tops/index'
   end
+
+  test 'guest user valid login logout' do
+    get root_path
+    assert_template 'tops/index'
+    post users_guest_sign_in_path
+    # assert logged_in?
+    assert_redirected_to tweets_url
+    follow_redirect!
+    assert_template 'tweets/index'
+    delete destroy_user_session_path
+    # assert_not logged_in?
+    assert_redirected_to root_url
+    follow_redirect!
+    assert_template 'tops/index'
+  end
 end
