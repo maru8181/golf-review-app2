@@ -8,6 +8,8 @@ class Tweet < ApplicationRecord
   validates :point_id, presence: true
   validates :text, length: { minimum: 0, maximum: 10_000 }
 
+  mount_uploader :image, ImageUploader
+
   def like_user(user_id)
     likes.find_by(user_id: user_id)
   end
