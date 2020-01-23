@@ -2,6 +2,14 @@
 
 <h1>Golfer</h1><hr>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :golf, "ゴルフ場検索" %>
+  <%= f.search_field :golf_name_cont %>
+  <%= f.submit "検索" %>
+<% end %>
+
+<span><%= @tweets.count %>件</span><hr>
+
 <%= link_to '新規作成', new_tweet_path %><hr>
 
 <% will_paginate %>
