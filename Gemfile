@@ -12,6 +12,7 @@ gem 'devise-i18n-views'
 gem 'jquery-rails'
 gem 'mini_magick', '>= 4.9.4'
 gem 'will_paginate', '3.1.7'
+gem 'ransack'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
