@@ -4,6 +4,7 @@ tweet1:
   point_id: 1
   user_id: 1
   text: 'example1'
+  image: '晴れ.jpg'
   golf: about
   point: hoge
   user: fuga
@@ -15,6 +16,7 @@ tweet2:
   point_id: 2
   user_id: 2
   text: 'example2'
+  image: '晴れ.jpg'
   golf: about
   point: hoge
   user: fuga
