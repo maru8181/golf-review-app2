@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get :following, :followers, on: :member
   end
 
+  resources :golves, only: %i[index show]
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',

@@ -2,12 +2,12 @@
 
 <p>
   <strong>ゴルフ場:</strong>
-  <%= @tweet.golf.name %>
+  <p><%= link_to "#{@tweet.golf.name}", golf_path(@tweet.golf) %></p>
 </p>
 
 <p>
   <strong>評価:</strong>
-  <%= @tweet.point.valuation %>
+  <%= @tweet.point.valuation.floor %>
 </p>
 
 <p>
