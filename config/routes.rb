@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   root 'tops#index'
-  get 'not_login',to:'tops#not_login_user'
+  get 'not_login', to: 'tops#not_login_user'
 
   resources :tweets do
     get 'follow_tweet', on: :collection
     resources :likes, only: %i[create destroy]
   end
 
-  resources :members, only: [:show] do
+  resources :members, only: %i[show index destroy] do
     get :following, :followers, on: :member
   end
 

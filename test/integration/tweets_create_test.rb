@@ -20,7 +20,6 @@ class TweetsCreateTest < ActionDispatch::IntegrationTest
     assert_difference 'Tweet.count', 1 do
       post tweets_url, params: { tweet: { golf_id: @tweet.golf_id, point_id: @tweet.point_id, text: @tweet.text, image: @tweet.image } }
     end
-    assert_redirected_to tweet_url(Tweet.last)
     follow_redirect!
     assert_template 'tweets/show'
   end
