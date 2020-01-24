@@ -5,4 +5,9 @@ class TopsControllerTest < ActionDispatch::IntegrationTest
     get root_path
     assert_response :success
   end
+
+  test 'should get not_login' do
+    get not_login_path
+    assert_response :success
+  end
 end
