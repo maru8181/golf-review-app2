@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :likes, only: %i[create destroy]
   end
 
-  resources :members, only: [:show] do
+  resources :members, only: %i[show index destroy] do
     get :following, :followers, on: :member
   end
 

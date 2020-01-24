@@ -1,0 +1,13 @@
+<%= flash[:delete_success] %>
+<%= flash[:admin_error] %>
+<%= flash[:guest_error] %>
+
+<% will_paginate @users %>
+<p>ユーザー一覧</p>
+  <% @users.each do |user| %>
+    <p>name : <%= link_to user.username, member_path(user) %></p>
+    <p>email : <%= user.email %></p>
+    <%= link_to '削除', member_path(user), method: :delete %>
+    <hr>
+  <% end %>
+<%= will_paginate @users %>

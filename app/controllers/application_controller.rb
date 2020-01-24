@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_session_url unless user_signed_in?
   end
 
+  def admin_required
+    redirect_to root_url unless current_user.admin?
+  end
+
   protected
 
   def configure_permitted_parameters
