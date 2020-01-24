@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :sign_in_required
   before_action :set_tweet
 
   def create

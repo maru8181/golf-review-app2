@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :sign_in_required
   before_action :set_tweet, only: %i[show edit update destroy]
 
   # GET /tweets

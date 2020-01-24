@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'tops#index'
+  get 'not_login',to:'tops#not_login_user'
 
   resources :tweets do
     get 'follow_tweet', on: :collection
