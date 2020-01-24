@@ -1,24 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @golf.name %></h1>
 
-<h1>Golfer</h1><hr>
-
-<% if current_user.admin? %>
-  <%= link_to '管理者ページ', members_path %><hr>
+<% if @tweets.count > 0 %>
+  <% sum = 0 %>
+  <% @tweets.each do |t| %>
+    <% sum += t.point.valuation %>
+  <% end %>
+  <% val = sum/@tweets.count %>
+  <p>みんなの評価　<%= val.round(1) %></p>
+<% else %>
+  <p>みんなの評価　0</p>
 <% end %>
 
-<%= search_form_for @q do |f| %>
-  <%= f.label :golf, "ゴルフ場検索" %>
-  <%= f.search_field :golf_name_cont %>
-  <%= f.submit "検索" %>
-<% end %>
+<p><%= @tweets.count %>件の評価</p>
+<hr>
 
-<span><%= @tweets.count %>件</span><hr>
-
-<%= link_to '新規作成', new_tweet_path %><hr>
-
-<% will_paginate %>
 <% @tweets.each do |tweet| %>
-  <p><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
   <p>評価：<%= tweet.point.valuation.floor %></p>
   <p><%= tweet.text %></p>
   <p><%= link_to '詳細', tweet %></p>
@@ -39,4 +35,3 @@
   <% end %>
 
 <% end %>
-<%= will_paginate %>
