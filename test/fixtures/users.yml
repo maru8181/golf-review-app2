@@ -7,6 +7,7 @@ user1:
   email: 'hoge@example.co.jp'
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.now - 100 %>
+  admin: false
 
 user2:
   id: 2
@@ -14,6 +15,7 @@ user2:
   email: 'fuga@example.co.jp'
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.now - 100 %>
+  admin: false
 
 user3:
   id: 3
@@ -21,6 +23,7 @@ user3:
   email: 'hogehoge@example.co.jp'
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.now - 100 %>
+  admin: false
 
 user4:
   id: 4
@@ -28,3 +31,20 @@ user4:
   email: 'fugafuga@example.co.jp'
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.now - 100 %>
+  admin: false
+
+user5:
+  id: 5
+  username: 'example5'
+  email: 'hogefuga@example.co.jp'
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.now - 100 %>
+  admin: true
+
+user6:
+  id: 6
+  username: 'guest_user'
+  email: 'guest@example.com'
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.now - 100 %>
+  admin: false
