@@ -3,6 +3,8 @@ require 'test_helper'
 class TweetsEditTest < ActionDispatch::IntegrationTest
   def setup
     @tweet = tweets(:tweet1)
+    @user = users(:user1)
+    login_as(@user)
   end
 
   test 'edit invalid' do
