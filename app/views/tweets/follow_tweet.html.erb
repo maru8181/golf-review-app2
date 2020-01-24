@@ -2,8 +2,8 @@
 
 <% @tweets.each do |tweet| %>
 
-  <p><%= tweet.golf.name %></p>
-  <p>評価：<%= tweet.point.valuation %></p>
+  <p><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
+  <p>評価：<%= tweet.point.valuation.floor %></p>
   <p><%= tweet.text %></p>
   <p><%= link_to '詳細', tweet %></p>
 

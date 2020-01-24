@@ -1,0 +1,14 @@
+<h1>奈良県ゴルフ場一覧</h1>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name, "ゴルフ場の名前で検索" %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit "検索" %>
+<% end %><br>
+
+<%= sort_link(@q, :name, "名前順に並べ替え") %><hr>
+
+<% @golves.each do |golf| %>
+  <p><%= link_to "#{golf.name}", golf_path(golf) %></p>
+<% end %>
