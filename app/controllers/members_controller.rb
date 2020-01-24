@@ -29,14 +29,12 @@ class MembersController < ApplicationController
     @user = User.find(params[:id])
     if @user.admin?
       flash[:admin_error] = '管理人は削除できません'
-      redirect_to members_url
-    # elsif @user.email = 'guest@example.com'
-    #   flash[:guest_error] = 'ゲストユーザーは削除できません'
-    #   redirect_to members_url
+    elsif @user.email == 'guest@example.com'
+      flash[:guest_error] = 'ゲストユーザーは削除できません'
     else
       @user.destroy
       flash[:delete_success] = '削除しました'
-      redirect_to members_url
     end
+    redirect_to members_url
   end
 end
