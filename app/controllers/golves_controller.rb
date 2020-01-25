@@ -9,4 +9,7 @@ class GolvesController < ApplicationController
     @tweets = Tweet.where(golf_id: @golf.id)
   end
 
+  def rank
+    @golves = Golf.all
+  end
 end

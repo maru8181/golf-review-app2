@@ -1,0 +1,9 @@
+<h1>おすすめ</h1>
+<p>※3件以上の評価があり、評価が3.5以上のゴルフ場</p><hr>
+<% @golves.each do |golf| %>
+  <% if golf.tweets.count > 2 && golf.tweets.average(:point_id) > 3.5 %>
+    <p><%= link_to "#{golf.name}", golf_path(golf) %></p>
+    <p>評価：<%= golf.tweets.average(:point_id).floor(1) %></p>
+    <p>評価数：<%= golf.tweets.count %></p>
+  <% end %>
+<% end %>
