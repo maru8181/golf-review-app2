@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_24_093201) do
+ActiveRecord::Schema.define(version: 2020_01_25_035205) do
 
   create_table "golves", force: :cascade do |t|
     t.string "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_01_24_093201) do
     t.float "valuation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "golf_id"
   end
 
   create_table "relationships", force: :cascade do |t|
