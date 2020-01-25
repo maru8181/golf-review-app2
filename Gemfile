@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem 'bootstrap-sass', '3.4.1'
-gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
