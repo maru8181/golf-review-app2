@@ -6,6 +6,9 @@
   <%= link_to '管理者ページ', members_path %><hr>
 <% end %>
 
+<%= link_to "ゴルフ場一覧", golves_path %>
+<%= link_to "おすすめのゴルフ場", rank_golves_path %>
+
 <%= search_form_for @q do |f| %>
   <%= f.label :golf, "ゴルフ場検索" %>
   <%= f.search_field :golf_name_cont %>
