@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'tops#index'
-  
+
   resources :tops, only: %i[index] do
     get :not_login, on: :collection
   end
@@ -26,7 +26,6 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   devise_scope :user do
-    post 'users/guest_sign_in', to:'users/sessions#new_guest'
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
-
 end
