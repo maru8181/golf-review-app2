@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root 'tops#index'
-  get 'not_login', to: 'tops#not_login_user'
+  
+  resources :tops, only: %i[index] do
+    get :not_login, on: :collection
+  end
 
   resources :tweets do
-    get 'follow_tweet', on: :collection
+    get :follow_tweet, on: :collection
     resources :likes, only: %i[create destroy]
   end
 
@@ -11,7 +14,11 @@ Rails.application.routes.draw do
     get :following, :followers, on: :member
   end
 
-  resources :golves, only: %i[index show]
+  resources :golves, only: %i[index show] do
+    get :rank, on: :collection
+  end
+
+  resources :relationships, only: %i[create destroy]
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -19,8 +26,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    post 'users/guest_sign_in', to:'users/sessions#new_guest'
   end
 
-  resources :relationships, only: %i[create destroy]
 end
