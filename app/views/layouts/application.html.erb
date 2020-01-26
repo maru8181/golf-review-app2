@@ -12,6 +12,8 @@
   <body>
     <div id="wrapper">
       <header>
+        <h1 class='header_title'>Golfer</h1>
+
         <% if user_signed_in? %>
           <strong><%= link_to 'トップページ', tweets_path %></strong>
           <strong><%= link_to 'マイページ', member_path(current_user) %></strong>
@@ -29,6 +31,15 @@
               <%= link_to "ゴルフ場一覧", golves_path, class: "dropdown-item" %>
               <%= link_to "おすすめのゴルフ場", rank_golves_path, class: "dropdown-item" %>
             </div>
+          </div>
+
+          <div class='search'>
+            <%= search_form_for Golf.ransack(params[:q]) do |f| %>
+              <%= f.label :name, "ゴルフ場の名前で検索" %>
+              <%= f.search_field :name_cont %>
+
+              <%= f.submit "検索" %>
+            <% end %>
           </div>
 
         <% else %>
