@@ -1,4 +1,8 @@
-<h1>Golfer</h1>
-<p>Golferは、奈良県のゴルフ場レビューサイトです。</p>
-<%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %><br>
-<%= link_to 'ログインしないで使う', not_login_tops_path %>
+<div class="top-container">
+  <h1 class=title>Golfer</h1>
+
+  <p class=sub>※Golferは、奈良県のゴルフ場レビューサイトです。</p>
+
+  <button type="button" class="btn btn-default"><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></button><br>
+  <button type="button" class="btn btn-default"><%= link_to 'ログインしないで使う', not_login_tops_path %></button>
+</div>
