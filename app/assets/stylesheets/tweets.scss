@@ -1,3 +1,25 @@
 // Place all the styles related to the Tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.tweet {
+  background-color: aliceblue;
+  padding: 20px;
+}
+
+.golf_name {
+  font-size: 150%;
+  padding: 10px;
+}
+
+.hoge {
+  padding: 10px;
+}
+
+.tweet_edit {
+  text-align: right;
+}
+
+.likebtn {
+  color: red;
+}

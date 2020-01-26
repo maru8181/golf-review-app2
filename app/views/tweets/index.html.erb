@@ -1,35 +1,37 @@
 <%= link_to '新規作成', new_tweet_path %><hr>
 
-<% will_paginate %>
+
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
-
+    <div class="col-md-8 offset-md-2">
+      <% will_paginate %>
+      
       <% @tweets.each do |tweet| %>
-        <p><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
-        <p>評価：<%= tweet.point.valuation.floor %></p>
-        <p><%= tweet.text %></p>
-        <p><%= link_to '詳細', tweet %></p>
+        <div class='tweet'>
+          <p class='golf_name'><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
+          <p class='hoge'>評価：<%= tweet.point.valuation.floor %></p>
+          <p class='hoge'><%= link_to "#{tweet.text}", tweet %></p>
 
-        <% if tweet.image? %>
-          <%= image_tag tweet.image.url %>
-        <% end %>
+          <% if tweet.image? %>
+            <p class='hoge'><%= image_tag tweet.image.url %></p>
+          <% end %>
 
-        <p>投稿者：<%= link_to "#{tweet.user.username}", member_path(User.find(tweet.user.id)) %></p>
+          <p class='hoge'>投稿者：<%= link_to "#{tweet.user.username}", member_path(User.find(tweet.user.id)) %></p>
 
-        <div id="likes_buttons_<%= tweet.id %>">
-          <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes} %>
+          <p id="likes_buttons_<%= tweet.id %>">
+            <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes} %>
+          </p>
+
+          <% if current_user == tweet.user || current_user.admin? %>
+            <div class='tweet_edit'>
+              <%= link_to '編集', edit_tweet_path(tweet) %>
+              <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+            </div>
+          <% end %>
         </div>
-
-        <% if current_user == tweet.user || current_user.admin? %>
-          <%= link_to '編集', edit_tweet_path(tweet) %>
-          <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %><hr>
-        <% end %>
-
       <% end %>
 
+      <%= will_paginate %>
     </div>
   </div>
 </div>
-
-<%= will_paginate %>

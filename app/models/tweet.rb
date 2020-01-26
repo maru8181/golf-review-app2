@@ -6,7 +6,7 @@ class Tweet < ApplicationRecord
 
   validates :golf_id, presence: true
   validates :point_id, presence: true
-  validates :text, length: { minimum: 0, maximum: 10_000 }
+  validates :text, length: { minimum: 0, maximum: 1000 }
 
   default_scope -> { order(created_at: :desc) }
 

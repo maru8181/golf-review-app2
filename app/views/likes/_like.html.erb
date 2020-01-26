@@ -1,15 +1,16 @@
 <% unless tweet.like_user(current_user.id).blank? %>
   <%= link_to tweet_like_path(tweet_id: tweet.id ,id: tweet.likes[0].id), method: :delete, remote: true, class: 'likebtn' do %>
-    <div class='btn-cancel'>
-      <i class='fa fa-heart'>いいね削除</i>
-    </div>
+    <i class="fas fa-heart"></i>
   <% end %>
 <% else %>
   <%= link_to tweet_likes_path(tweet.id), method: :post, remote: true, class: 'likebtn' do %>
-    <div class='btn-cancel'>
-      <i class='fa fa-heart-o'>いいね</i>
-    </div>
+    <i class="far fa-heart"></i>
   <% end %>
 <% end %>
 
-  <span><%= tweet.likes_count %></span>
+<span>いいね数<span>
+<% if tweet.likes_count.blank? %>
+  <span>0</span>
+<% else %>
+  <span><%= tweet.likes_count %><span>
+<% end %>

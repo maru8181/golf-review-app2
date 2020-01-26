@@ -6,7 +6,7 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @likes = Like.where(tweet_id: params[:tweet_id])
-    @tweets = Tweet.paginate(page: params[:page])
+    @tweets = Tweet.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /tweets/1
