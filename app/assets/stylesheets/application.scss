@@ -14,3 +14,40 @@
  *= require_self
  *= require bootstrap/dist/css/bootstrap.min.css
  */
+
+ * {
+   margin: 5px;
+ }
+
+ .notice {
+   margin: 0;
+ }
+
+ .dropdown {
+   display: inline;
+ }
+
+ body header {
+   background-color: #CCFFCC;
+   padding: 10px;
+ }
+
+ html{
+    background: #FFFFEE;
+    font-size: 80%;
+    body{
+      background-color: #FFFFEE;
+    }
+  }
+
+ body,#wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+ }
+
+ footer {
+   text-align: center;
+   margin-top: auto;
+   background-color: #CCFFCC;
+ }
