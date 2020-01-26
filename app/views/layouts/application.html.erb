@@ -11,16 +11,39 @@
 
   <body>
     <header>
-        <nav>
-            <% if user_signed_in? %>
-            <strong><%= link_to current_user.username, member_path(current_user) %></strong>
-            <%= link_to 'プロフィール変更', edit_user_registration_path %>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-            <%= link_to 'サインアップ', new_user_registration_path %>
-            <%= link_to 'ログイン', new_user_session_path %>
-            <% end %>
-        </nav>
+      <% if user_signed_in? %>
+        <strong><%= link_to 'トップページ', tweets_path %></strong>
+        <strong><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></strong>
+
+        <% if current_user.admin? %>
+          <%= link_to '管理者ページ', members_path %>
+        <% end %>
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle"type="button"id="dropdownMenuButton"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ゴルフ場
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to "ゴルフ場一覧", golves_path, class: "dropdown-item" %>
+            <%= link_to "おすすめのゴルフ場", rank_golves_path, class: "dropdown-item" %>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle"type="button"id="dropdownMenuButton"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ユーザー
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'マイページ', member_path(current_user), class: "dropdown-item" %>
+            <%= link_to 'プロフィール変更', edit_user_registration_path, class: "dropdown-item" %>
+          </div>
+        </div>
+
+      <% else %>
+        <%= link_to '新規登録', new_user_registration_path %>
+        <%= link_to 'ログイン', new_user_session_path %>
+      <% end %>
+
     </header>
 
     <p class="notice"><%= notice %></p>
