@@ -1,17 +1,12 @@
+<h1>Golfer</h1>
 <p>ログインすると様々な機能が使えます。</p>
 <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
-
-<h1>Golfer</h1><hr>
+<hr>
 
 <% will_paginate @tweets %>
 <% @tweets.each do |tweet| %>
   <p><%= tweet.golf.name %></p>
   <p>評価：<%= tweet.point.valuation %></p>
   <p><%= tweet.text %></p>
-
-  <% if tweet.image? %>
-    <%= image_tag tweet.image.url %>
-  <% end %>
-
 <% end %>
 <%= will_paginate @tweets %>
