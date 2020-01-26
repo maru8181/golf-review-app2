@@ -27,14 +27,17 @@
    display: inline;
  }
 
+ .search {
+   display: inline;
+ }
+
  body header {
    background-color: #CCFFCC;
    padding: 10px;
  }
 
- html{
+ html {
     background: #FFFFEE;
-    font-size: 80%;
     body{
       background-color: #FFFFEE;
     }
@@ -50,4 +53,12 @@
    text-align: center;
    margin-top: auto;
    background-color: #CCFFCC;
+ }
+
+ img {
+    width:300px;
+ }
+
+ .header_title {
+   display: inline;
  }
