@@ -4,15 +4,14 @@
 
       <% if current_user == @user %>
 
-        <h2>マイページ</h2><hr>
-
-        <%= link_to 'プロフィール変更', edit_user_registration_path %>
-
-        <%= link_to 'フォローしている人のtweet', follow_tweet_tweets_path %>
+        <h2 class='inline'>マイページ</h2>
 
         <section class="stats">
           <%= render 'shared/stats' %>
         </section>
+
+        <%= link_to 'プロフィール変更', edit_user_registration_path, class: 'mypage_link' %>
+        <%= link_to 'フォローユーザーのツイート', follow_tweet_tweets_path, class: 'mypage_link' %><hr>
 
         <% will_paginate @tweets %>
           <% @tweets.each do |tweet| %>
@@ -39,6 +38,8 @@
               <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes} %>
             </p>
 
+            <p class='hoge_right'>投稿日時：<%= simple_time(tweet[:created_at]) %></p>
+
             <div class='tweet_edit'>
               <%= link_to '編集', edit_tweet_path(tweet), class: 'mypage' %>
               <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
@@ -50,11 +51,11 @@
 
       <% else %>
 
-        <h2><%= @user.username %>さんのページ</h2>
+        <h2 class='inline'><%= @user.username %>さんのページ</h2>
         <section class="stats">
           <%= render 'shared/stats' %>
         </section>
-        <%= render 'follow_form' %>
+        <%= render 'follow_form' %><hr>
 
         <% will_paginate @tweets %>
           <% @tweets.each do |tweet| %>
@@ -80,6 +81,8 @@
               <p id="likes_buttons_<%= tweet.id %>">
                 <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes} %>
               </p>
+
+              <p class='hoge_right'>投稿日時：<%= simple_time(tweet[:created_at]) %></p>
 
               <% if current_user.admin? %>
                 <div class='tweet_edit'>
