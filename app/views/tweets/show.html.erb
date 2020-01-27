@@ -1,28 +1,42 @@
-<p>
-  <strong>ゴルフ場:</strong>
-  <p><%= link_to "#{@tweet.golf.name}", golf_path(@tweet.golf) %></p>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
 
-<p>
-  <strong>評価:</strong>
-  <%= @tweet.point.valuation.floor %>
-</p>
+      <h2>詳細ページ</h2><hr>
 
-<p>
-  <strong>詳細:</strong>
-  <%= @tweet.text %>
-</p>
+      <div class='tweet'>
+          <p class='golf_name'><%= link_to "#{@tweet.golf.name}", golf_path(@tweet.golf) %></p>
 
-<% if @tweet.image? %>
-  <p>
-    <strong>image:</strong>
-    <%= image_tag @tweet.image.url %>
-  </p>
-<% end %>
+          <div class='gofl_point'>
+            <span class='hoge'>評価：</span>
+            <% @tweet.point.valuation.to_i.times do %>
+              <span class="fas fa-star"></span>
+            <% end %>
+            <% (5-@tweet.point.valuation.to_i).times do %>
+            <span class="far fa-star"></span>
+            <% end %>
+          </div>
 
-<% if current_user == @tweet.user || current_user.admin? %>
-  <%= link_to '編集', edit_tweet_path(@tweet) %>
-  <%= link_to '削除', @tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
-<% end %>
+          <p class='hoge'><%= @tweet.text %></p>
 
-<%= link_to 'トップページに戻る', tweets_path %>
+          <% if @tweet.image? %>
+            <p class='hoge'><%= image_tag @tweet.image.url %></p>
+          <% end %>
+
+          <p class='hoge'>投稿者：<%= link_to "#{@tweet.user.username}", member_path(User.find(@tweet.user.id)) %></p>
+
+          <p id="likes_buttons_<%= @tweet.id %>">
+            <%= render partial: 'likes/like', locals: { tweet: @tweet, likes: @likes} %>
+          </p>
+
+          <% if current_user == @tweet.user || current_user.admin? %>
+            <div class='tweet_edit'>
+              <%= link_to '編集', edit_tweet_path(@tweet) %>
+              <%= link_to '削除', tweet_path(@tweet), method: :delete, data: { confirm: '本当に削除しますか?' } %>
+            </div>
+          <% end %>
+        </div>
+
+    </div>
+  </div>
+</div>
