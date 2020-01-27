@@ -1,5 +1,28 @@
-<h1>奈良県ゴルフ場一覧</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
 
-<% @golves.each do |golf| %>
-  <p><%= link_to "#{golf.name}", golf_path(golf) %></p>
-<% end %>
+      <h2>奈良県ゴルフ場一覧</h2><hr>
+
+
+      <table>
+        <tr>
+          <th class="golf_table">name</th>
+          <th class="golf_table">address</th>
+          <th class="golf_table">course rate</th>
+        </tr>
+
+        <% @golves.each do |golf| %>
+        <tr>
+          <td><strong class='golftable'><%= link_to "#{golf.name}", golf_path(golf) %></strong></td>
+          <td><strong class='golftable'><%= golf.place %></strong></td>
+          <td><strong class='golftable'><%= golf.courserate %></strong></td>
+        </tr>
+        <% end %>
+
+      </table>
+
+
+    </div>
+  </div>
+</div>
