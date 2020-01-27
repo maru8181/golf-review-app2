@@ -3,25 +3,25 @@ class MembersController < ApplicationController
   before_action :admin_required, only: %i[index delete]
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], per_page: 30)
   end
 
   def show
     @user = User.find(params[:id])
-    @tweets = Tweet.where(user_id: params[:id]).paginate(page: params[:page])
+    @tweets = Tweet.where(user_id: params[:id]).paginate(page: params[:page], per_page: 10)
   end
 
   def following
     @title = 'Following'
     @user  = User.find(params[:id])
-    @users = @user.following.all.paginate(page: params[:page])
+    @users = @user.following.all.paginate(page: params[:page], per_page: 30)
     render 'show_follow'
   end
 
   def followers
     @title = 'Followers'
     @user  = User.find(params[:id])
-    @users = @user.followers.all.paginate(page: params[:page])
+    @users = @user.followers.all.paginate(page: params[:page], per_page: 30)
     render 'show_follow'
   end
 

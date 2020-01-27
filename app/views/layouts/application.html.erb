@@ -16,12 +16,12 @@
 
         <% if user_signed_in? %>
           <h1 class='header_title'>Golfer</h1>
-          <strong><%= link_to 'トップページ', tweets_path %></strong>
-          <strong><%= link_to 'マイページ', member_path(current_user) %></strong>
-          <strong><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></strong>
+          <strong class='header_link'><%= link_to 'トップページ', tweets_path %></strong>
+          <strong class='header_link'><%= link_to 'マイページ', member_path(current_user) %></strong>
+          <strong class='header_link'><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></strong>
 
           <% if current_user.admin? %>
-            <strong><%= link_to '管理者ページ', members_path %></strong>
+            <strong class='header_link'><%= link_to '管理者ページ', members_path %></strong>
           <% end %>
 
           <div class="dropdown">
@@ -44,8 +44,8 @@
           </div>
 
         <% else %>
-          <strong><%= link_to '新規登録', new_user_registration_path %></strong>
-          <strong><%= link_to 'ログイン', new_user_session_path %></strong>
+          <strong class='header_link'><%= link_to '新規登録', new_user_registration_path %></strong>
+          <strong class='header_link'><%= link_to 'ログイン', new_user_session_path %></strong>
         <% end %>
 
       </header>

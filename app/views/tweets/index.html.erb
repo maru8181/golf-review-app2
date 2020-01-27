@@ -3,7 +3,7 @@
     <div class="col-md-8 offset-md-2">
 
       <h2 class='inline'>トップページ</h2>
-      <%= link_to '新規作成', new_tweet_path %><hr>
+      <span class='new_tweet'><%= link_to '新規作成', new_tweet_path %></span><hr>
 
       <% will_paginate %>
 
@@ -32,6 +32,8 @@
           <p id="likes_buttons_<%= tweet.id %>">
             <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes} %>
           </p>
+
+          <p class='hoge_right'>投稿日時：<%= simple_time(tweet[:created_at]) %></p>
 
           <% if current_user == tweet.user || current_user.admin? %>
             <div class='tweet_edit'>

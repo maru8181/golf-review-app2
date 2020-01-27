@@ -1,12 +1,39 @@
-<h1>Golfer</h1>
-<p>ログインすると様々な機能が使えます。</p>
-<%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
-<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
 
-<% will_paginate @tweets %>
-<% @tweets.each do |tweet| %>
-  <p><%= tweet.golf.name %></p>
-  <p>評価：<%= tweet.point.valuation %></p>
-  <p><%= tweet.text %></p>
-<% end %>
-<%= will_paginate @tweets %>
+      <h6>ログインすると様々な機能が使えます。</h6>
+      <strong class='guestbtn'><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></strong>
+      <hr>
+
+      <% will_paginate @tweets %>
+
+      <% @tweets.each do |tweet| %>
+        <div class='tweet'>
+          <p class='golf_name'><%= tweet.golf.name %></p>
+
+          <div class='gofl_point'>
+            <span class='hoge'>評価：</span>
+            <% tweet.point.valuation.to_i.times do %>
+              <span class="fas fa-star"></span>
+            <% end %>
+            <% (5-tweet.point.valuation.to_i).times do %>
+            <span class="far fa-star"></span>
+            <% end %>
+          </div>
+
+          <p class='hoge'><%= tweet.text %></p>
+
+          <% if tweet.image? %>
+            <p class='hoge'><%= image_tag tweet.image.url %></p>
+          <% end %>
+
+          <p class='hoge_right'>投稿日時：<%= simple_time(tweet[:created_at]) %></p>
+          
+        </div>
+      <% end %>
+
+      <%= will_paginate @tweets %>
+    </div>
+  </div>
+</div>

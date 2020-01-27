@@ -68,7 +68,7 @@ class TweetsController < ApplicationController
       @tweets += Tweet.where(user_id: user.id).reverse_order
     end
     @tweets = @tweets.sort_by(&:created_at).reverse
-    @tweets = @tweets.paginate(page: params[:page])
+    @tweets = @tweets.paginate(page: params[:page], per_page: 10)
   end
 
   private

@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-md-8 offset-md-2">
 
-      <h2>詳細ページ</h2><hr>
+      <h2>ツイート詳細</h2><hr>
 
       <div class='tweet'>
-          <p class='golf_name'><%= link_to "#{@tweet.golf.name}", golf_path(@tweet.golf) %></p>
+          <p class='golf_name'><%= @tweet.golf.name %></p>
 
           <div class='gofl_point'>
             <span class='hoge'>評価：</span>
@@ -28,6 +28,8 @@
           <p id="likes_buttons_<%= @tweet.id %>">
             <%= render partial: 'likes/like', locals: { tweet: @tweet, likes: @likes} %>
           </p>
+
+          <p class='hoge_right'>投稿日時：<%= simple_time(@tweet[:created_at]) %></p>
 
           <% if current_user == @tweet.user || current_user.admin? %>
             <div class='tweet_edit'>
