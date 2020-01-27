@@ -1,55 +1,98 @@
-<% if current_user == @user %>
-  <h2>マイページ<h2><hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
 
-  <%= link_to 'プロフィール変更', edit_user_registration_path, class: 'mypage' %>
+      <% if current_user == @user %>
 
-  <%= link_to 'フォローしている人のtweet', follow_tweet_tweets_path, class: 'mypage' %>
+        <h2>マイページ</h2><hr>
 
-  <section class="stats">
-    <%= render 'shared/stats' %>
-  </section>
+        <%= link_to 'プロフィール変更', edit_user_registration_path %>
 
-  <% will_paginate @tweets %>
-    <% @tweets.each do |tweet| %>
-      <p><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
-      <p>評価：<%= tweet.point.valuation %></p>
-      <p><%= tweet.text %></p>
-      <p><%= link_to '詳細', tweet %></p>
+        <%= link_to 'フォローしている人のtweet', follow_tweet_tweets_path %>
 
-      <% if tweet.image? %>
-        <%= image_tag tweet.image.url %>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section>
+
+        <% will_paginate @tweets %>
+          <% @tweets.each do |tweet| %>
+            <div class='tweet'>
+            <p class='golf_name'><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
+
+            <div class='gofl_point'>
+              <span class='hoge'>評価：</span>
+              <% tweet.point.valuation.to_i.times do %>
+                <span class="fas fa-star"></span>
+              <% end %>
+              <% (5-tweet.point.valuation.to_i).times do %>
+              <span class="far fa-star"></span>
+              <% end %>
+            </div>
+
+            <p class='hoge'><%= link_to "#{tweet.text}", tweet %></p>
+
+            <% if tweet.image? %>
+              <p class='hoge'><%= image_tag tweet.image.url %></p>
+            <% end %>
+
+            <p id="likes_buttons_<%= tweet.id %>">
+              <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes} %>
+            </p>
+
+            <div class='tweet_edit'>
+              <%= link_to '編集', edit_tweet_path(tweet), class: 'mypage' %>
+              <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+            </div>
+          </div>
+        <% end %>
+        <%= will_paginate @tweets %>
+
+
+      <% else %>
+
+        <h2><%= @user.username %>さんのページ</h2>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section>
+        <%= render 'follow_form' %>
+
+        <% will_paginate @tweets %>
+          <% @tweets.each do |tweet| %>
+            <div class='tweet'>
+              <p class='golf_name'><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
+
+              <div class='gofl_point'>
+                <span class='hoge'>評価：</span>
+                <% tweet.point.valuation.to_i.times do %>
+                  <span class="fas fa-star"></span>
+                <% end %>
+                <% (5-tweet.point.valuation.to_i).times do %>
+                <span class="far fa-star"></span>
+                <% end %>
+              </div>
+
+              <p class='hoge'><%= link_to "#{tweet.text}", tweet %></p>
+
+              <% if tweet.image? %>
+                <p class='hoge'><%= image_tag tweet.image.url %></p>
+              <% end %>
+
+              <p id="likes_buttons_<%= tweet.id %>">
+                <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes} %>
+              </p>
+
+              <% if current_user.admin? %>
+                <div class='tweet_edit'>
+                  <%= link_to '編集', edit_tweet_path(tweet) %>
+                  <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <%= will_paginate @tweets %>
+
       <% end %>
 
-      <%= link_to '編集', edit_tweet_path(tweet), class: 'mypage' %>
-      <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' }, class: 'mypage' %>
-      <hr>
-    <% end %>
-  <%= will_paginate @tweets %>
-
-<% else %>
-  <h2><%= @user.username %>さんのページ</h2>
-
-  <section class="stats">
-    <%= render 'shared/stats' %>
-  </section>
-  <%= render 'follow_form' %>
-
-  <% will_paginate @tweets %>
-    <% @tweets.each do |tweet| %>
-      <p><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
-      <p>評価：<%= tweet.point.valuation %></p>
-      <p><%= tweet.text %></p>
-      <p><%= link_to '詳細', tweet %></p>
-
-      <% if tweet.image? %>
-        <%= image_tag tweet.image.url %>
-      <% end %>
-
-      <% if current_user.admin? %>
-        <%= link_to '編集', edit_tweet_path(tweet) %>
-        <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
-      <% end %>
-      <hr>
-    <% end %>
-  <%= will_paginate @tweets %>
-<% end %>
+    </div>
+  </div>
+</div>
