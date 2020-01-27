@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: '投稿しました' }
+        format.html { redirect_to member_url(current_user), notice: '投稿しました' }
         format.json { render :show, status: :created, location: @tweet }
       else
         format.html { render :new }

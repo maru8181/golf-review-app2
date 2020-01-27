@@ -25,7 +25,6 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
     get member_path(@user)
     assert_template 'members/show'
     assert_select 'a[href=?]', destroy_user_session_path, count: 1
-    assert_select 'a[href=?]', edit_user_registration_path, count: 1
     assert_select 'a[href=?]', member_path(@user2), count: 1
   end
 

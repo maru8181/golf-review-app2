@@ -1,15 +1,26 @@
-<%= link_to '新規作成', new_tweet_path %><hr>
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
+
+      <h2 class='inline'>トップページ</h2>
+      <%= link_to '新規作成', new_tweet_path %><hr>
+
       <% will_paginate %>
-      
+
       <% @tweets.each do |tweet| %>
         <div class='tweet'>
           <p class='golf_name'><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
-          <p class='hoge'>評価：<%= tweet.point.valuation.floor %></p>
+
+          <div class='gofl_point'>
+            <span class='hoge'>評価：</span>
+            <% tweet.point.valuation.to_i.times do %>
+              <span class="fas fa-star"></span>
+            <% end %>
+            <% (5-tweet.point.valuation.to_i).times do %>
+            <span class="far fa-star"></span>
+            <% end %>
+          </div>
+
           <p class='hoge'><%= link_to "#{tweet.text}", tweet %></p>
 
           <% if tweet.image? %>
