@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_25_035205) do
+ActiveRecord::Schema.define(version: 2020_01_27_094449) do
 
   create_table "golves", force: :cascade do |t|
     t.string "name"
     t.string "place"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "courserate"
   end
 
   create_table "likes", force: :cascade do |t|
