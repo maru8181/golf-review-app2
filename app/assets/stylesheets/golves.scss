@@ -4,9 +4,22 @@
 
 .golf_table {
   text-align: center;
-  width: 200px;
+  width: 300px;
 }
 
 .golftable {
   text-align: center;
+  :hover {
+    background-color: #FFFFEE;
+    text-decoration: none;
+  }
+}
+
+.val_sum {
+  font-size: 100%;
+  padding: 14px;
+}
+
+.fav_title {
+  padding-bottom: 20px;
 }
