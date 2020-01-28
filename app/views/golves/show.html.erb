@@ -29,13 +29,15 @@
       <p class='hoge'><%= @tweets.count %>件の評価</p>
       <hr>
 
+      <h4 class='fuga'>みんなのツイート</h4>
+
       <% will_paginate @tweets %>
 
       <% @tweets.each do |tweet| %>
         <div class='tweet'>
           <p class='golf_name'><%= tweet.golf.name %></p>
 
-          <div class='gofl_point'>
+          <div class='golf_point'>
             <span class='hoge'>評価：</span>
             <% tweet.point.valuation.to_i.times do %>
               <span class="fas fa-star"></span>
