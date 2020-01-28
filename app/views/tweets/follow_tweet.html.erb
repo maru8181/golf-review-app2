@@ -11,7 +11,7 @@
           <div class='tweet'>
             <p class='golf_name'><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
 
-            <div class='gofl_point'>
+            <div class='golf_point'>
               <span class='hoge'>評価：</span>
               <% tweet.point.valuation.to_i.times do %>
                 <span class="fas fa-star"></span>

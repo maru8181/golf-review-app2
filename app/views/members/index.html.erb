@@ -2,12 +2,44 @@
 <%= flash[:admin_error] %>
 <%= flash[:guest_error] %>
 
-<% will_paginate @users %>
-<p>ユーザー一覧</p>
-  <% @users.each do |user| %>
-    <p>name : <%= link_to user.username, member_path(user) %></p>
-    <p>email : <%= user.email %></p>
-    <%= link_to '削除', member_path(user), method: :delete %>
-    <hr>
-  <% end %>
-<%= will_paginate @users %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+
+      <div class='all_user'>
+
+        <h2>ユーザー一覧</h2><hr>
+
+        <% will_paginate @users %>
+          <% @users.each do |user| %>
+
+            <% if user.admin? %>
+              <p>管理人</p>
+              <p>name : <%= user.username %></p>
+              <p>email : <%= user.email %></p>
+              <p>tweets : <%= user.tweets.count %></p>
+              <hr>
+
+            <% elsif user.email == 'guest@example.com' %>
+              <p>ゲストユーザーアカウント</p>
+              <p>name : <%= user.username %></p>
+              <p>email : <%= user.email %></p>
+              <p>tweets : <%= user.tweets.count %></p>
+              <hr>
+
+            <% else %>
+              <p>name : <%= link_to user.username, member_path(user) %></p>
+              <p>email : <%= user.email %></p>
+              <p>tweets : <%= user.tweets.count %></p>
+              <%= link_to '削除', member_path(user), method: :delete %>
+              <hr>
+            <% end %>
+
+          <% end %>
+        <%= will_paginate @users %>
+
+      </div>
+
+    </div>
+  </div>
+</div>

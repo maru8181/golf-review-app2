@@ -23,11 +23,21 @@
    margin: 0;
  }
 
- .dropdown {
-   display: inline;
+ .titlebar {
+   display: table;
+   width: 100%;
  }
 
- .search {
+ .header_right {
+   display: table-cell;
+   text-align: right;
+ }
+
+ .header_left {
+   display: table-cell;
+   text-align: left;
+ }
+ .dropdown {
    display: inline;
  }
 
@@ -68,6 +78,7 @@
  }
 
  .header_link {
+   display: inline;
    :hover{
     background-color: #CCFFCC;
     text-decoration: none;

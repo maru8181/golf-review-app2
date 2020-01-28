@@ -13,12 +13,14 @@
         <%= link_to 'プロフィール変更', edit_user_registration_path, class: 'mypage_link' %>
         <%= link_to 'フォローユーザーのツイート', follow_tweet_tweets_path, class: 'mypage_link' %><hr>
 
+        <h4 class='fuga'>過去の投稿</h4>
+
         <% will_paginate @tweets %>
           <% @tweets.each do |tweet| %>
             <div class='tweet'>
             <p class='golf_name'><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
 
-            <div class='gofl_point'>
+            <div class='golf_point'>
               <span class='hoge'>評価：</span>
               <% tweet.point.valuation.to_i.times do %>
                 <span class="fas fa-star"></span>
@@ -62,7 +64,7 @@
             <div class='tweet'>
               <p class='golf_name'><%= link_to "#{tweet.golf.name}", golf_path(tweet.golf) %></p>
 
-              <div class='gofl_point'>
+              <div class='golf_point'>
                 <span class='hoge'>評価：</span>
                 <% tweet.point.valuation.to_i.times do %>
                   <span class="fas fa-star"></span>
