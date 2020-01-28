@@ -40,11 +40,14 @@
   }
 }
 
+.likebtn:hover{
+  background-color: aliceblue;
+  text-decoration: none;
+  color: red;
+}
+
 .likebtn {
   color: red;
-  :hover{
-    background-color: aliceblue;
-  }
 }
 
 .golf_point :not(.hoge) {
@@ -56,4 +59,14 @@
     background-color: #FFFFEE;
     text-decoration: none;
   }
+}
+
+.fuga {
+  padding: 10px;
+}
+
+.tweet_btn {
+  width: 400px;
+  height: 30px;
+  margin-top: 50px;
 }

@@ -4,24 +4,25 @@
 
       <h2>奈良県ゴルフ場一覧</h2><hr>
 
-
       <table>
         <tr>
           <th class="golf_table">name</th>
-          <th class="golf_table">address</th>
-          <th class="golf_table">course rate</th>
+          <th class="golf_table">評価</th>
         </tr>
 
         <% @golves.each do |golf| %>
-        <tr>
-          <td><strong class='golftable'><%= link_to "#{golf.name}", golf_path(golf) %></strong></td>
-          <td><strong class='golftable'><%= golf.place %></strong></td>
-          <td><strong class='golftable'><%= golf.courserate %></strong></td>
-        </tr>
+          <tr>
+            <td class='golftable'><strong><%= link_to "#{golf.name}", golf_path(golf) %></strong></td>
+            <td class='golftable'>
+              <% if golf.tweets.average(:point_id).blank? %>
+                <strong>0</strong>
+              <% else %>
+                <strong><%= golf.tweets.average(:point_id).floor(1) %></strong>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-
       </table>
-
 
     </div>
   </div>

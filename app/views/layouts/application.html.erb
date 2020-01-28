@@ -15,7 +15,26 @@
       <header>
 
         <% if user_signed_in? %>
+<div class="titlebar">
+
+  <div class='header_left'>
+
           <h1 class='header_title'>Golfer</h1>
+
+          <div class="dropdown">
+          
+            <button class="btn btn-secondary dropdown-toggle"type="button"id="dropdownMenuButton"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ゴルフ場
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to "ゴルフ場一覧", golves_path, class: "dropdown-item" %>
+              <%= link_to "おすすめのゴルフ場", rank_golves_path, class: "dropdown-item" %>
+            </div>
+
+          </div>
+
+
           <strong class='header_link'><%= link_to 'トップページ', tweets_path %></strong>
           <strong class='header_link'><%= link_to 'マイページ', member_path(current_user) %></strong>
           <strong class='header_link'><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></strong>
@@ -23,16 +42,10 @@
           <% if current_user.admin? %>
             <strong class='header_link'><%= link_to '管理者ページ', members_path %></strong>
           <% end %>
+  </div>
 
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle"type="button"id="dropdownMenuButton"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              ゴルフ場
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to "ゴルフ場一覧", golves_path, class: "dropdown-item" %>
-              <%= link_to "おすすめのゴルフ場", rank_golves_path, class: "dropdown-item" %>
-            </div>
-          </div>
+  <div class='header_right'>
+
 
           <div class='search'>
             <%= search_form_for Golf.ransack(params[:q]) do |f| %>
@@ -42,6 +55,8 @@
               <%= f.submit "検索" %>
             <% end %>
           </div>
+  </div>
+</div>
 
         <% else %>
           <strong class='header_link'><%= link_to '新規登録', new_user_registration_path %></strong>

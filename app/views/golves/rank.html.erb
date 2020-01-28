@@ -1,10 +1,31 @@
-<h1>おすすめ</h1>
-<p>※3件以上の評価があり、評価が3.5以上のゴルフ場</p><hr>
-<% @golves.each do |golf| %>
-  <% if golf.tweets.count > 2 && golf.tweets.average(:point_id) > 3.5 %>
-    <p><%= link_to "#{golf.name}", golf_path(golf) %></p>
-    <p>評価：<%= golf.tweets.average(:point_id).floor(1) %></p>
-    <p>評価数：<%= golf.tweets.count %></p>
-  <% else %><span> </span>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+
+      <h2 class='inline'>おすすめ</h2>
+      <span>※5件以上の評価があり、評価が3.5以上のゴルフ場</span><hr>
+
+      <% @golves.each do |golf| %>
+        <% if golf.tweets.count > 4 && golf.tweets.average(:point_id) > 3.5 %>
+          <h4 class='fav_title'><%= link_to "#{golf.name}", golf_path(golf) %></h4>
+
+          <div class='golf_point'>
+            <span class='hoge'>評価：</span>
+            <% golf.tweets.average(:point_id).to_i.times do %>
+              <span class="fas fa-star"></span>
+            <% end %>
+            <% (5-golf.tweets.average(:point_id).to_i).times do %>
+              <span class="far fa-star"></span>
+            <% end %>
+            <span class='hoge'><%= golf.tweets.average(:point_id).floor(1) %></span>
+          </div>
+
+          <p class='val_sum'>評価数：<%= golf.tweets.count %></p><hr>
+
+        <% else %><span> </span>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
