@@ -11,15 +11,17 @@
         <% end %>
         <% val = sum/@tweets.count %>
 
+        <% @golf.tweets.average(:point_id).floor(1) %>
+
         <div class='golf_point'>
           <span class='hoge'>みんなの評価　</span>
-          <% val.to_i.times do %>
+          <% @golf.tweets.average(:point_id).to_i.times do %>
             <span class="fas fa-star"></span>
           <% end %>
-          <% (5-val.to_i).times do %>
+          <% (5-@golf.tweets.average(:point_id)).ceil.to_i.times do %>
             <span class="far fa-star"></span>
           <% end %>
-          <span class='hoge'><%= val.round(1) %></span>
+          <span class='hoge'><%= @golf.tweets.average(:point_id).floor(1) %></span>
         </div>
 
       <% else %>

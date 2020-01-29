@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_01_27_094449) do
   end
 
   create_table "points", force: :cascade do |t|
-    t.float "valuation"
+    t.integer "valuation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "golf_id"
