@@ -19,10 +19,10 @@
 
   <div class='header_left'>
 
-          <h1 class='header_title'>Golfer</h1>
+          <h1 class='header_title'><%= link_to 'Golfer', tweets_path %></h1>
 
           <div class="dropdown">
-          
+
             <button class="btn btn-secondary dropdown-toggle"type="button"id="dropdownMenuButton"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               ゴルフ場
             </button>
@@ -34,9 +34,21 @@
 
           </div>
 
+          <div class="dropdown">
 
-          <strong class='header_link'><%= link_to 'トップページ', tweets_path %></strong>
-          <strong class='header_link'><%= link_to 'マイページ', member_path(current_user) %></strong>
+            <button class="btn btn-secondary dropdown-toggle"type="button"id="dropdownMenuButton"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              マイページ
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to 'マイページ', member_path(current_user), class: "dropdown-item" %>
+              <%= link_to 'プロフィール変更', edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to 'フォローユーザーのツイート', follow_tweet_tweets_path, class: "dropdown-item" %>
+              <%= link_to '新規投稿', new_tweet_path, class: "dropdown-item" %>
+            </div>
+
+          </div>
+
           <strong class='header_link'><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></strong>
 
           <% if current_user.admin? %>

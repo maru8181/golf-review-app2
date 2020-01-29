@@ -12,14 +12,14 @@ class MembersController < ApplicationController
   end
 
   def following
-    @title = 'Following'
+    @title = 'フォローしているユーザー'
     @user  = User.find(params[:id])
     @users = @user.following.all.paginate(page: params[:page], per_page: 30)
     render 'show_follow'
   end
 
   def followers
-    @title = 'Followers'
+    @title = 'フォロワー'
     @user  = User.find(params[:id])
     @users = @user.followers.all.paginate(page: params[:page], per_page: 30)
     render 'show_follow'

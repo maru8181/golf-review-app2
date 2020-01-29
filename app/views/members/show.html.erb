@@ -6,12 +6,19 @@
 
         <h2 class='inline'>マイページ</h2>
 
-        <section class="stats">
-          <%= render 'shared/stats' %>
-        </section>
-
+        <%= link_to '新規投稿', new_tweet_path, class: 'mypage_link' %>
         <%= link_to 'プロフィール変更', edit_user_registration_path, class: 'mypage_link' %>
         <%= link_to 'フォローユーザーのツイート', follow_tweet_tweets_path, class: 'mypage_link' %><hr>
+
+        <div class='profile'>
+          <h5>name : <%= @user.username %></h5>
+          <h5>email : <%= @user.email %></h5>
+          <h5>tweet数 : <%= @user.tweets.count %></h5>
+        </div>
+
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section><hr>
 
         <h4 class='fuga'>過去の投稿</h4>
 
@@ -54,10 +61,15 @@
       <% else %>
 
         <h2 class='inline'><%= @user.username %>さんのページ</h2>
+        <i class='inline'><%= render 'follow_form' %></i>
+
+        <h5 class='tweet_count'>tweet数 : <%= @user.tweets.count %></h5>
+
         <section class="stats">
           <%= render 'shared/stats' %>
         </section>
-        <%= render 'follow_form' %><hr>
+
+        <hr>
 
         <% will_paginate @tweets %>
           <% @tweets.each do |tweet| %>
