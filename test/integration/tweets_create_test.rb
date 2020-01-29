@@ -21,6 +21,6 @@ class TweetsCreateTest < ActionDispatch::IntegrationTest
       post tweets_url, params: { tweet: { golf_id: @tweet.golf_id, point_id: @tweet.point_id, text: @tweet.text, image: @tweet.image } }
     end
     follow_redirect!
-    assert_template 'tweets/show'
+    assert_template 'members/show'
   end
 end
