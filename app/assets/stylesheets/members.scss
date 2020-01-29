@@ -8,7 +8,7 @@
 }
 
 .stats {
-  display: inline;
+  // padding: 10px;
 }
 
 .all_user {
@@ -18,4 +18,30 @@
   background-color: aliceblue;
   text-decoration: none;
 }
+}
+
+.profile {
+  padding: 10px;
+}
+
+#follow_form {
+  padding: 10px;
+  display: inline;
+  text-align: right;
+}
+
+.tweet_count {
+  margin-top: -30px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.users_follow {
+  margin-left: 10px;
+  padding-top: 10px;
+  font-size: larger;
+  :hover{
+  background-color: #FFFFEE;
+  text-decoration: none;
+  }
 }
