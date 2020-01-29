@@ -14,7 +14,7 @@
 
         <% if @title == 'フォローしているユーザー' %>
           <span><%= @user.following.count %>フォロー</span>
-        <% elsif @title == 'フォロワー'%>
+        <% elsif @title == 'フォロワー' %>
           <span><%= @user.followers.count %>フォロワー</span>
         <% end %>
         <hr>
@@ -28,7 +28,7 @@
           <%= will_paginate @users %>
         </ul>
       <% else %>
-        <p class="users_follow"><%= @title %>がいません</>
+        <p class="users_follow"><%= @title %>がいません</p>
       <% end %>
 
     </div>
