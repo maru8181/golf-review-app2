@@ -6,6 +6,8 @@
       <strong class='guestbtn'><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></strong>
       <hr>
 
+      <h4 class='fuga'>みんなの投稿</h4>
+
       <% will_paginate @tweets %>
 
       <% @tweets.each do |tweet| %>
