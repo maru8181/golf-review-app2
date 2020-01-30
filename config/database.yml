@@ -2,28 +2,21 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: db
-  username: postgres
+  username: username
   password:
   pool: 5
 
 development:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: rails_dev
-  pool: 5
-  username: username
-  password:
-  host: localhost
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: rails_dev
-  pool: 5
-  username: username
-  password:
-  host: localhost
+  <<: *default
+  database: rails_test
 
-# test:
+# production:
 #   <<: *default
-#   database: myapp_test
+#   database: 
+#   host: <%= Rails.application.credentials.[:] %>
+#   username: <%= Rails.application.credentials.[:] %>
+#   password: <%= Rails.application.credentials.[:] %>
