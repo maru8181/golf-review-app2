@@ -19,4 +19,4 @@ production:
   username: <%= Rails.application.credentials.production(:username) %>
   password: <%= Rails.application.credentials.production(:password) %>
   host: <%= Rails.application.credentials.production(:host) %>
-  database: golf_production
+  database: <%= Rails.application.credentials.production(:database) %>
