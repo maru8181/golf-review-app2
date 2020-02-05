@@ -1,9 +1,9 @@
 default: &default
   adapter: mysql2
-  encoding: utf8mb4
+  encoding: utf8
   pool: 5
   username: root
-  password: password
+  password: <%= Rails.application.credentials.default(:password) %>
   host: db
 
 development:
@@ -13,3 +13,10 @@ development:
 test:
   <<: *default
   database: golf_test
+
+production:
+  <<: *default
+  username: <%= Rails.application.credentials.production(:username) %>
+  password: <%= Rails.application.credentials.production(:password) %>
+  host: <%= Rails.application.credentials.production(:host) %>
+  database: golf_production
