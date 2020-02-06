@@ -3,7 +3,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: <%= Rails.application.credentials.default(:password) %>
+  password: password
   host: db
 
 development:
@@ -16,7 +16,7 @@ test:
 
 production:
   <<: *default
-  username: <%= Rails.application.credentials.production(:username) %>
-  password: <%= Rails.application.credentials.production(:password) %>
-  host: <%= Rails.application.credentials.production(:host) %>
-  database: <%= Rails.application.credentials.production(:database) %>
+  username: <%= Rails.application.credentials.production[:username] %>
+  password: <%= Rails.application.credentials.production[:password] %>
+  host: <%= Rails.application.credentials.production[:host] %>
+  database: <%= Rails.application.credentials.production[:database] %>
