@@ -65,3 +65,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'webdrivers'
 end
+
+group :production, :staging do
+    gem 'unicorn'
+end
