@@ -37,3 +37,5 @@ yarn-debug.log*
 
 public/uploads/tweet/*
 /.env
+
+/.nginx/log/error.log
