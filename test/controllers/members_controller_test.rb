@@ -29,7 +29,6 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', member_path(@user2), count: 1
     assert_select 'a[href=?]', follow_tweet_tweets_path, count: 1
     assert_select 'a[href=?]', new_tweet_path, count: 1
-
   end
 
   test 'admin_user delete user' do
