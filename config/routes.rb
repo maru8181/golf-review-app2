@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'tops#index'
 
-  resources :tops, only: %i[index] do
+  resources :tops, only: %i[index show] do
     get :not_login, on: :collection
   end
 
