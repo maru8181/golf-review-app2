@@ -27,7 +27,7 @@
           <p class='hoge'><%= tweet.text %></p>
 
           <% if tweet.image? %>
-            <p class='hoge'><%= image_tag tweet.image.url %></p>
+            <p><%= image_tag tweet.image.url %></p>
           <% end %>
 
           <p class='hoge_right'>投稿日時：<%= simple_time(tweet[:created_at]) %></p>

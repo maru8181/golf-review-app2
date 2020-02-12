@@ -25,7 +25,7 @@
           <p class='hoge'><%= link_to "#{tweet.text}", tweet %></p>
 
           <% if tweet.image? %>
-            <p class='hoge'><%= image_tag tweet.image.url %></p>
+            <p><%= image_tag tweet.image.url %></p>
           <% end %>
 
           <p class='hoge'>投稿者：<%= link_to "#{tweet.user.username}", member_path(User.find(tweet.user.id)) %></p>

@@ -40,7 +40,7 @@
             <p class='hoge'><%= link_to "#{tweet.text}", tweet %></p>
 
             <% if tweet.image? %>
-              <p class='hoge'><%= image_tag tweet.image.url %></p>
+              <p><%= image_tag tweet.image.url %></p>
             <% end %>
 
             <p id="likes_buttons_<%= tweet.id %>">
@@ -89,7 +89,7 @@
               <p class='hoge'><%= link_to "#{tweet.text}", tweet %></p>
 
               <% if tweet.image? %>
-                <p class='hoge'><%= image_tag tweet.image.url %></p>
+                <p><%= image_tag tweet.image.url %></p>
               <% end %>
 
               <p id="likes_buttons_<%= tweet.id %>">
