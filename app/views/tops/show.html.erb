@@ -2,10 +2,14 @@
   <div class="row">
     <div class="col-md-8 offset-md-2">
 
-      <h1><%= @golf.name %></h1>
+      <h6>ログインすると様々な機能が使えます。</h6>
+      <strong class='guestbtn'><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></strong>
+      <hr>
+
+      <h1 id="unlogin_title"><%= @golf.name %></h1>
 
       <% if @tweets.count > 0 %>
-        
+
         <div class='golf_point'>
           <span class='hoge'>みんなの評価　</span>
           <% @golf.tweets.average(:point_id).to_i.times do %>
@@ -42,26 +46,14 @@
             <% end %>
           </div>
 
-          <p class='hoge'><%= link_to "#{tweet.text}", tweet %></p>
+          <p class='hoge'><%= tweet.text %></p>
 
           <% if tweet.image? %>
             <p><%= image_tag tweet.image.url %></p>
           <% end %>
 
-          <p class='hoge'>投稿者：<%= link_to "#{tweet.user.username}", member_path(User.find(tweet.user.id)) %></p>
-
-          <p id="likes_buttons_<%= tweet.id %>">
-            <%= render partial: 'likes/like', locals: { tweet: tweet, likes: @likes} %>
-          </p>
-
           <p class='hoge_right'>投稿日時：<%= simple_time(tweet[:created_at]) %></p>
 
-          <% if current_user == tweet.user || current_user.admin? %>
-            <div class='tweet_edit'>
-              <%= link_to '編集', edit_tweet_path(tweet) %>
-              <%= link_to '削除', tweet, method: :delete, data: { confirm: '本当に削除しますか?' } %>
-            </div>
-          <% end %>
         </div>
       <% end %>
 

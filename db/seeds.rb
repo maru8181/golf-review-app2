@@ -37,5 +37,4 @@ Point.find_or_create_by(valuation: 3)
 Point.find_or_create_by(valuation: 4)
 Point.find_or_create_by(valuation: 5)
 
-# User.create!(username: 'example', email: 'example@yahoo.co.jp', password: 'hogehoge', password_confirmation: 'hogehoge', confirmed_at: Time.now - 100)
-# User.create!(username: 'example00', email: 'example123@yahoo.co.jp', password: 'fugafuga', password_confirmation: 'fugafuga', confirmed_at: Time.now - 100)
+User.create!(username: 'maru', email: ENV['YAHOO_MAIL_ADDRESS'], password: 'hogehoge', password_confirmation: 'hogehoge', confirmed_at: Time.now - 100, admin: true)
