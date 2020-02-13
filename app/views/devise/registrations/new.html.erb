@@ -11,7 +11,10 @@
 
           <tr>
             <th><%= f.label :username %></th>
-            <td><%= f.text_field :username, autofocus: true, autocomplete: "username" %></td>
+            <td>
+              <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+              <em>(12文字以内の英数字で入力してください)</em>
+            </td>
           </tr>
 
           <tr>
