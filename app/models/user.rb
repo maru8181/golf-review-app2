@@ -10,7 +10,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable
-  validates :username, presence: true
+  validates :username, presence: true, length: { minimum: 1, maximum: 12 }, format: { with: /\A[a-zA-Z\d]+\z/ }
 
   # ユーザーをフォローする
   def follow(other_user)
