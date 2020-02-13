@@ -4,7 +4,7 @@
 
 ゴルフ場のレビューが行えるサイトです。
 
-URL(https://golf-review-app.com）  
+https://www.golf-review-app.com/  
 
 トップ画面からゲストユーザーでログインが可能です。
 
