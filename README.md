@@ -26,4 +26,4 @@ https://www.golf-review-app.com/
 - MYSQL 8.0
 - GitHub,Git
 - Docker(開発環境)
-- AWS(IAM,EC2,RDS,ELB,ACM,Route53)
+- AWS(EC2,RDS,ALB,ACM,Route53)
