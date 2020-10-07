@@ -26,9 +26,11 @@
         <% end %><hr>
 
         <div class="actions">
-          <%= f.submit "ログイン" , class: 'devise-btn' %>
+          <%# <%= f.submit "ログイン" , class: 'devise-btn' %>
         </div>
 
+        <p>※現在、会員登録をストップしております。</p>
+        <p>以下よりゲストログインしてください</p>
         <strong class='guest_btn'><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %></strong>
 
       <% end %><hr>
