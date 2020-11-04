@@ -4,22 +4,22 @@
 
       <h1><%= @golf.name %></h1>
 
-      <% if @tweets.count > 0 %>
-        
+      <%# <% if @tweets.count > 0 % >
+
         <div class='golf_point'>
           <span class='hoge'>みんなの評価　</span>
-          <% @golf.tweets.average(:point_id).to_i.times do %>
+          <% @golf.tweets.average(:point_id).to_i.times do % >
             <span class="fas fa-star"></span>
-          <% end %>
-          <% (5-@golf.tweets.average(:point_id)).ceil.to_i.times do %>
+          <% end % >
+          <% (5-@golf.tweets.average(:point_id)).ceil.to_i.times do % >
             <span class="far fa-star"></span>
-          <% end %>
-          <span class='hoge'><%= @golf.tweets.average(:point_id).floor(1) %></span>
+          <% end % >
+          <span class='hoge'><%= @golf.tweets.average(:point_id).floor(1) % ></span>
         </div>
 
-      <% else %>
+      <% else % >
         <p class='hoge'>まだ評価がありません</p>
-      <% end %>
+      <% end % > %>
 
       <p class='hoge'><%= @tweets.count %>件の評価</p>
       <hr>
