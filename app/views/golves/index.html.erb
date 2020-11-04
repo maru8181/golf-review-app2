@@ -7,19 +7,19 @@
       <table>
         <tr>
           <th class="golf_table">name</th>
-          <th class="golf_table">評価</th>
+          <%# <th class="golf_table">評価</th> %>
         </tr>
 
         <% @golves.each do |golf| %>
           <tr>
             <td class='golftable'><strong><%= link_to "#{golf.name}", golf_path(golf) %></strong></td>
-            <td class='golftable'>
-              <% if golf.tweets.average(:point_id).blank? %>
+            <%# <td class='golftable'>
+              <% if golf.tweets.average(:point_id).blank? % >
                 <strong>0</strong>
-              <% else %>
-                <strong><%= golf.tweets.average(:point_id).floor(1) %></strong>
-              <% end %>
-            </td>
+              <% else % >
+                <strong><%= golf.tweets.average(:point_id).floor(1) % ></strong>
+              <% end % >
+            </td> %>
           </tr>
         <% end %>
       </table>
