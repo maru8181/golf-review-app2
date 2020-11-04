@@ -2,11 +2,12 @@
 
 ## Golfer
 
-ゴルフ場のレビューが行えるサイトです。
-トップ画面からゲストユーザーでログインが可能です。
+ゴルフ場のレビューが行えるサイトです。<br>
+トップ画面からゲストユーザーでログインが可能です。<br>
 
-https://www.golf-review-app.com/
-※現在停止中です
+~~https://www.golf-review-app.com/~~<br>
+https://golf-review-app2.herokuapp.com/<br>
+※現在はHerokuで公開中です。
 
 ## 主な機能,使用gemなど
 
@@ -20,6 +21,8 @@ https://www.golf-review-app.com/
 - ゲストユーザーログイン機能
 - 単体テスト、統合テスト(minitest)
 - 静的解析ツール(rubocop)
+<br>
+※現在、一部機能制限中です。
 
 ## 使用技術
 
