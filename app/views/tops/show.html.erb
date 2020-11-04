@@ -36,15 +36,15 @@
         <div class='tweet'>
           <p class='golf_name'><%= tweet.golf.name %></p>
 
-          <div class='golf_point'>
+          <%# <div class='golf_point'>
             <span class='hoge'>評価：</span>
-            <% tweet.point.valuation.to_i.times do %>
+            <% tweet.point.valuation.to_i.times do % >
               <span class="fas fa-star"></span>
-            <% end %>
-            <% (5-tweet.point.valuation.to_i).times do %>
+            <% end % >
+            <% (5-tweet.point.valuation.to_i).times do % >
             <span class="far fa-star"></span>
-            <% end %>
-          </div>
+            <% end % >
+          </div> %>
 
           <p class='hoge'><%= tweet.text %></p>
 
