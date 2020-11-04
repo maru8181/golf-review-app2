@@ -21,7 +21,6 @@ https://golf-review-app2.herokuapp.com/<br>
 - ゲストユーザーログイン機能
 - 単体テスト、統合テスト(minitest)
 - 静的解析ツール(rubocop)
-<br>
 ※現在、一部機能制限中です。
 
 ## 使用技術
